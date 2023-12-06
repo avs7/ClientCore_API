@@ -8,7 +8,11 @@ const {
   deleteContact,
 } = require('../controllers/contactController')
 
+const requireAuth = require('../middleware/requireAuth')
+
 const router = express.Router()
+
+router.use(requireAuth)
 
 router.get('/', getContacts)
 router.get('/:id', getContact)
