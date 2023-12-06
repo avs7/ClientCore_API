@@ -24,6 +24,7 @@ const createContact = async (req, res) => {
   }
   // add to database
   try {
+    const user_id = req.user._id
     const contact = await Contact.create({
       first_name,
       last_name,
@@ -32,6 +33,7 @@ const createContact = async (req, res) => {
       phone,
       email,
       address,
+      user_id,
     })
     res.status(200).json(contact)
   } catch (error) {
@@ -40,7 +42,8 @@ const createContact = async (req, res) => {
 }
 
 const getContacts = async (req, res) => {
-  const contacts = await Contact.find({}).sort({ last_name: 1 })
+  const user_id = req.user_id
+  const contacts = await Contact.find({ user_id }).sort({ last_name: 1 })
 
   res.status(200).json(contacts)
 }

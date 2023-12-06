@@ -9,7 +9,7 @@ const contactSchema = new Schema(
       required: true,
     },
     last_name: String,
-    contact_id: {
+    user_id: {
       type: String,
       required: true,
     },
