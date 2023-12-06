@@ -11,10 +11,6 @@ app.use(express.json())
 app.use('/api/contacts', contactRoutes)
 app.use('/api/user', userRoutes)
 
-app.get('/', (req, res) => {
-  res.send('test123')
-})
-
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
