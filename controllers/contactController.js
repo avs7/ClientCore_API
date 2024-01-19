@@ -42,7 +42,7 @@ const createContact = async (req, res) => {
 }
 
 const getContacts = async (req, res) => {
-  const user_id = req.user_id
+  const user_id = req.user._id
   const contacts = await Contact.find({ user_id }).sort({ last_name: 1 })
 
   res.status(200).json(contacts)
