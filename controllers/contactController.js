@@ -22,7 +22,7 @@ const createContact = async (req, res) => {
       .status(400)
       .json({ error: 'Missing required information:', emptyFields })
   }
-  // add to database
+  // add to database 
   try {
     const user_id = req.user._id
     const contact = await Contact.create({
